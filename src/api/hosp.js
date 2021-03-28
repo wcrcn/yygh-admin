@@ -1,0 +1,45 @@
+import request from '@/utils/request'
+export default {
+  // 医院列表
+  getPageList(current, limit, searchObj) {
+    return request({
+      url: `/admin/hosp/hospital/list/${current}/${limit}`,
+      method: 'GET',
+      params: searchObj
+    })
+  },
+  // 查询dictCode查询下级数据字典
+  findByDictCode(dictCode) {
+    return request({
+      url: `/admin/cmn/dict/findByDictCode/${dictCode}`,
+      method: 'GET'
+    })
+  },
+  // 根据id查询下级数据字典
+  findByParentId(dictCode) {
+    return request({
+      url: `/admin/cmn/dict/findChildData/${dictCode}`,
+      method: 'GET'
+    })
+  },
+  updateStatus(id, status) {
+    return request({
+      url: `/admin/hosp/hospital/updateStatus/${id}/${status}`,
+      method: 'GET'
+    })
+  },
+  // 查看医院详情
+  getHospById(id) {
+    return request({
+      url: `/admin/hosp/hospital/show/${id}`,
+      method: 'GET'
+    })
+  },
+  getDeptList(hoscode) {
+    return request({
+      url: `/admin/hosp/department/getDeptList/${hoscode}`,
+      method: 'GET'
+    })
+  }
+
+}

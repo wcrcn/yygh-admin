@@ -36,13 +36,11 @@
           <router-link :to="'/hosp/hospitalSet/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit"/>
           </router-link>
-
           <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)"/>
           <el-button type="primary" v-if="scope.row.status === 1" icon="el-icon-delete" size="mini" @click="lockHostSet(scope.row.id, 0)">锁定</el-button>
           <el-button type="danger" v-if="scope.row.status === 0" size="mini" icon="el-icon-delete" @click="lockHostSet(scope.row.id, 1)">取消锁定</el-button>
         </template>
       </el-table-column>
-
     </el-table>
     <!-- -->
     <el-pagination class="pagination" :page-size="limit" background layout="prev, pager, next" :total="total" @current-change="currentChange"/>
